@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&display=swap');
+
+:root {
+    --white: #ffffff;
+    --sidebar: #fcfcfc;
+    --text: #242424;
+    --secondary: #858585;
+    --border: #eeeeee;
+    --accent: #7776bd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    background: var(--white);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 255px;
+    height: 100vh;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 27px 19px 17px;
+    flex-shrink: 0;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 650;
+    letter-spacing: -1.4px;
+    margin: 0 0 38px 5px;
+}
+
+.brand span {
+    color: #aaa9d8;
+}
+
+button {
+    font-family: inherit;
+}
+
+.new-chat {
+    width: 100%;
+    height: 43px;
+    border: 1px solid #e9e9e9;
+    border-radius: 9px;
+    background: white;
+    text-align: left;
+    padding: 0 13px;
+    font-size: 13px;
+    color: #444;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.new-chat span {
+    font-size: 19px;
+    margin-right: 9px;
+    color: #888;
+    vertical-align: -1px;
+}
+
+.new-chat:hover {
+    background: #f7f7f7;
+}
+
+.sidebar-section {
+    margin-top: 38px;
+}
+
+.section-label {
+    color: #a0a0a0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    margin: 0 0 14px 9px;
+}
+
+.nav-item {
+    display: block;
+    width: 100%;
+    padding: 11px 10px;
+    border: none;
+    background: transparent;
+    color: #777;
+    text-align: left;
+    font-size: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: #f1f1f1;
+    color: #292929;
+}
+
+.history {
+    margin-top: 37px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    font-size: 12px;
+    color: #777;
+    border-radius: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background: #f2f2f2;
+}
+
+.sidebar-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 17px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.profile-avatar {
+    height: 34px;
+    width: 34px;
+    display: grid;
+    place-items: center;
+    background: #eeeeF7;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #7776a8;
+}
+
+.profile-name {
+    font-size: 12px;
+    font-weight: 550;
+}
+
+.profile-plan {
+    color: #999;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+
+/* MAIN */
+
+.main {
+    flex: 1;
+    height: 100vh;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    height: 62px;
+    flex-shrink: 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+}
+
+.topbar-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #555;
+}
+
+.topbar-status {
+    font-size: 11px;
+    color: #999;
+}
+
+
+/* CHAT AREA */
+
+.conversation {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 25px;
+    scroll-behavior: smooth;
+}
+
+.empty-state {
+    max-width: 650px;
+    margin: 155px auto 0;
+    text-align: center;
+}
+
+.empty-state h1 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1.4px;
+    color: #292929;
+}
+
+.empty-state p {
+    margin-top: 13px;
+    color: #999;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+/* MESSAGES */
+
+.message {
+    max-width: 720px;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 13px 17px;
+    font-size: 13px;
+    line-height: 1.8;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+.user-message {
+    margin-right: max(0px, calc((100% - 720px) / 2));
+    margin-left: auto;
+    background: #f5f4fa;
+    color: #333;
+}
+
+.ai-message {
+    width: min(720px, 100%);
+    background: transparent;
+    color: #444;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* INPUT */
+
+.composer-area {
+    width: 100%;
+    padding: 15px 25px 19px;
+    flex-shrink: 0;
+}
+
+.composer {
+    max-width: 760px;
+    min-height: 58px;
+    margin: auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    display: flex;
+    align-items: flex-end;
+    padding: 9px 10px 9px 17px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.composer:focus-within {
+    border-color: #c9c8df;
+    box-shadow: 0 2px 12px rgba(80, 80, 120, 0.04);
+}
+
+.composer textarea {
+    flex: 1;
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: #333;
+    padding: 10px 0;
+    max-height: 130px;
+    line-height: 1.6;
+}
+
+.composer textarea::placeholder {
+    color: #aaa;
+}
+
+.send-button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 9px;
+    background: #efeff8;
+    color: #7776ad;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.send-button:hover {
+    background: #e4e3f3;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 10px;
+    color: #b0b0b0;
+    margin-top: 12px;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        width: 65px;
+        padding: 20px 7px;
+    }
+
+    .brand {
+        font-size: 15px;
+        margin-left: 3px;
+    }
+
+    .new-chat {
+        font-size: 0;
+        text-align: center;
+        padding: 0;
+    }
+
+    .new-chat span {
+        margin: 0;
+    }
+
+    .section-label,
+    .nav-item,
+    .history,
+    .profile-name,
+    .profile-plan {
+        display: none;
+    }
+
+    .profile {
+        justify-content: center;
+    }
+
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .empty-state {
+        margin-top: 120px;
+    }
+
+    .empty-state h1 {
+        font-size: 23px;
+    }
+
+    .composer-area {
+        padding: 12px;
+    }
+}
